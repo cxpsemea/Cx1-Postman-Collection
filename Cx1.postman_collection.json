@@ -1,0 +1,1321 @@
+{
+	"info": {
+		"_postman_id": "4bdf91c9-2b62-4155-b535-79a89318c784",
+		"name": "Cx1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticated v1",
+			"item": [
+				{
+					"name": "Get Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_ProjectId\", pm.response.json().projects[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/projects?name=ssba",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ssba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test-api-project create\",\r\n    \"criticality\": 3,\r\n    \"origin\": \"Postmans\",\r\n    \"groups\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_URL}}/api/projects",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Applications",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/applications",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scans",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_ScanId\", pm.response.json().scans[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/scans?project-id={{Cx1_ProjectId}}",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"scans"
+							],
+							"query": [
+								{
+									"key": "project-id",
+									"value": "{{Cx1_ProjectId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get RM Scans",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/sast-rm/scans",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"sast-rm",
+								"scans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_ScanId\", pm.response.json().id);\r",
+									"pm.environment.set(\"Cx1_ProjectId\", pm.response.json().projectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/scans/:scanid",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"scans",
+								":scanid"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "{{Cx1_ScanId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan SAST Metadata",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/sast-metadata/:scanid",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"sast-metadata",
+								":scanid"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "{{Cx1_ScanId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Results",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"results",
+								""
+							],
+							"query": [
+								{
+									"key": "scan-id",
+									"value": "{{Cx1_ScanId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SAST Results",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/sast-results/?scan-id={{Cx1_ScanId}}",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"sast-results",
+								""
+							],
+							"query": [
+								{
+									"key": "scan-id",
+									"value": "{{Cx1_ScanId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Queries",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/queries",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"queries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Queries Preset",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/queries/presets",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"presets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Presets",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/presets",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"presets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Presets Queries",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/presets/queries",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"presets",
+								"queries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get KC Users",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/realms/{{Cx1_Tenant}}/users?first=0&max=20&order=asc&sort=username",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "0"
+								},
+								{
+									"key": "max",
+									"value": "20"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								},
+								{
+									"key": "sort",
+									"value": "username"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get KC User's Group memberships",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users/:userid/groups",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"users",
+								":userid",
+								"groups"
+							],
+							"variable": [
+								{
+									"key": "userid",
+									"value": "1d7b537a-c528-4c79-9ca3-3d4f83b6feb4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add KC User Group membership",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users/:userid/groups/:groupId",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"users",
+								":userid",
+								"groups",
+								":groupId"
+							],
+							"variable": [
+								{
+									"key": "userid",
+									"value": "1d7b537a-c528-4c79-9ca3-3d4f83b6feb4"
+								},
+								{
+									"key": "groupId",
+									"value": "b368988c-b124-4151-b507-c8fcad501165"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get KC Groups",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/groups?briefRepresentation=true",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "max",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "TAM",
+									"disabled": true
+								},
+								{
+									"key": "briefRepresentation",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get KC Group members",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/groups/:groupId/members",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"groups",
+								":groupId",
+								"members"
+							],
+							"variable": [
+								{
+									"key": "groupId",
+									"value": "b368988c-b124-4151-b507-c8fcad501165"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create KC Group",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test-API-create group\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/groups",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "max",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "TAM",
+									"disabled": true
+								},
+								{
+									"key": "briefRepresentation",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Query Description",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/queries/descriptions?ids=1",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"descriptions"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Webhooks",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/webhooks/projects/:projectid",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"webhooks",
+								"projects",
+								":projectid"
+							],
+							"variable": [
+								{
+									"key": "projectid",
+									"value": "4c8b83b9-0723-4aa3-9e6c-ef059d521947"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upload URI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_UploadURI\", pm.response.json().url);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/uploads",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Source to URI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Work/code/simple-c-command-injection- too long dataflow.zip"
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_UploadURI}}",
+							"host": [
+								"{{Cx1_UploadURI}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Scan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"presetName\": \"Checkmarx Default\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_URL}}/api/scans/",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"scans",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_ReportId\", pm.response.json().reportId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileFormat\": \"pdf\",\r\n    \"reportType\": \"ui\",\r\n    \"reportName\": \"scan-report\",\r\n    \"data\": {\r\n        \"scanId\": \"{{Cx1_ScanId}}\",\r\n        \"projectId\": \"{{Cx1_ProjectId}}\",\r\n        \"branchName\": \"master\",\r\n        \"sections\": [\r\n            \"ScanSummary\",\r\n            \"ExecutiveSummary\",\r\n            \"ScanResults\"\r\n        ],\r\n        \"scanners\": [\r\n            \"SAST\"\r\n        ],\r\n        \"host\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_URL}}/api/reports",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_ReportURL\", pm.response.json().url);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/reports/:reportId",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								":reportId"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{Cx1_ReportId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json; version=1.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_ReportURL}}",
+							"host": [
+								"{{Cx1_ReportURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Cx1_Token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Auth Token - OAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"Cx1_Token\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{Cx1_Client}}",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{Cx1_Secret}}",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Cx1_IAM}}/auth/realms/{{Cx1_Tenant}}/protocol/openid-connect/token",
+					"host": [
+						"{{Cx1_IAM}}"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"{{Cx1_Tenant}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth Token - API Key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"Cx1_Token\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "ast-app",
+							"type": "default"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{Cx1_API_Key}}",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Cx1_IAM}}/auth/realms/{{Cx1_Tenant}}/protocol/openid-connect/token",
+					"host": [
+						"{{Cx1_IAM}}"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"{{Cx1_Tenant}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
