@@ -159,7 +159,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"groups\": [\"edda1c4d-0715-4fee-995e-efd31d981bc5\"],\r\n    \"tags\": {},\r\n    \"repoUrl\": \"\",\r\n    \"mainBranch\": \"master\",\r\n    \"criticality\": 3,\r\n    \"applicationIds\": []\r\n}"
+									"raw": "        {\r\n            \"id\": \"7afb04e1-e1b5-48ba-b055-cea2b67a5285\",\r\n            \"name\": \"ssba-sca test\",\r\n            \"createdAt\": \"2023-01-17T07:43:27.757312Z\",\r\n            \"updatedAt\": \"2023-01-19T15:18:52.31213Z\",\r\n            \"groups\": [\r\n            ],\r\n            \"tags\": {},\r\n            \"repoUrl\": \"\",\r\n            \"mainBranch\": \"\",\r\n            \"criticality\": 3\r\n        }"
 								},
 								"url": {
 									"raw": "{{Cx1_URL}}/api/projects/:projectId",
@@ -1455,7 +1455,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"git\",\r\n    \"handler\": {\r\n        \"branch\": \"master\",\r\n        \"repoUrl\": \"\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"presetName\": \"Checkmarx Default\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"git\",\r\n    \"handler\": {\r\n        \"branch\": \"master\",\r\n        \"repoUrl\": \"url here\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"presetName\": \"Checkmarx Default\"\r\n            }\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3077,6 +3077,54 @@
 											"key": "userID",
 											"value": "{{Cx1_UserId}}"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"enabled\": true,\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"User\",\r\n    \"username\": \"Test User\",\r\n    \"email\": \"testuser@cx.local\",\r\n    \"groups\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users/",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"users",
+										""
 									]
 								}
 							},
