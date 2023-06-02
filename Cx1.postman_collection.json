@@ -781,7 +781,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/cx-audit/queries",
+									"raw": "{{Cx1_URL}}/api/cx-audit/queries?projectId={{Cx1_ProjectId}}",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -793,8 +793,50 @@
 									"query": [
 										{
 											"key": "projectId",
-											"value": "0e253255-c25a-453d-8d8f-95f224a09f3f",
-											"disabled": true
+											"value": "{{Cx1_ProjectId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Query",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/cx-audit/queries/:scope/:query",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"cx-audit",
+										"queries",
+										":scope",
+										":query"
+									],
+									"variable": [
+										{
+											"key": "scope",
+											"value": "Corp"
+										},
+										{
+											"key": "query",
+											"value": "queries%2fJavaScript%2fJavaScript_High_Risk%2fClient_DOM_XSS%2fClient_DOM_XSS.cs"
 										}
 									]
 								}
@@ -830,7 +872,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/cx-audit/sessions?projectId=0e253255-c25a-453d-8d8f-95f224a09f3f&scanId=74328f1f-94ec-452f-8f1a-047d76f6764e",
+									"raw": "{{Cx1_URL}}/api/cx-audit/sessions?projectId={{Cx1_ProjectId}}&scanId={{Cx1_ScanId}}",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -842,11 +884,11 @@
 									"query": [
 										{
 											"key": "projectId",
-											"value": "0e253255-c25a-453d-8d8f-95f224a09f3f"
+											"value": "{{Cx1_ProjectId}}"
 										},
 										{
 											"key": "scanId",
-											"value": "74328f1f-94ec-452f-8f1a-047d76f6764e"
+											"value": "{{Cx1_ScanId}}"
 										}
 									]
 								}
@@ -891,7 +933,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{Cx1_URL}}/api/cx-audit/sessions?projectId=0e253255-c25a-453d-8d8f-95f224a09f3f&scanId=74328f1f-94ec-452f-8f1a-047d76f6764e",
+									"raw": "{{Cx1_URL}}/api/cx-audit/sessions?projectId={{Cx1_ProjectId}}&scanId={{Cx1_ScanId}}",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -903,11 +945,11 @@
 									"query": [
 										{
 											"key": "projectId",
-											"value": "0e253255-c25a-453d-8d8f-95f224a09f3f"
+											"value": "{{Cx1_ProjectId}}"
 										},
 										{
 											"key": "scanId",
-											"value": "74328f1f-94ec-452f-8f1a-047d76f6764e"
+											"value": "{{Cx1_ScanId}}"
 										}
 									]
 								}
@@ -1171,7 +1213,7 @@
 							"response": []
 						},
 						{
-							"name": "Update Query",
+							"name": "Compile Query Update",
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
 									"accept": true,
@@ -1189,7 +1231,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n    {\r\n        \"Id\": \"6655845764654296005\",\r\n        \"name\": \"React_Deprecated\",\r\n        \"group\": \"JavaScript_Low_Visibility\",\r\n        \"lang\": \"JavaScript\",\r\n        \"path\": \"queries/JavaScript/JavaScript_Low_Visibility/React_Deprecated/React_Deprecated.cs\",\r\n        \"level\": \"0e253255-c25a-453d-8d8f-95f224a09f3f\",\r\n        \"isExecutable\": false,\r\n        \"clientUniqId\": \"postman\",\r\n        \"originalCode\": \"\",\r\n        \"code\": \"// test2\",\r\n        \"fullEditorId\": \"postman\",\r\n        \"editorId\": \"postman\",\r\n        \"isLoading\": false,\r\n        \"id\": \"6655845764654296005\",\r\n        \"source\": \"// test3\",\r\n        \"data\": {\r\n            \"Cwe\": -1,\r\n            \"CxDescriptionID\": -1\r\n        }\r\n    }\r\n]",
+									"raw": "[\r\n    {\r\n        \"Id\": \"6655845764654296005\",\r\n        \"name\": \"React_Deprecated\",\r\n        \"group\": \"JavaScript_Low_Visibility\",\r\n        \"lang\": \"JavaScript\",\r\n        \"path\": \"queries/JavaScript/JavaScript_Low_Visibility/React_Deprecated/React_Deprecated.cs\",\r\n        \"level\": \"0e253255-c25a-453d-8d8f-95f224a09f3f\",\r\n        \"isExecutable\": false,\r\n        \"clientUniqId\": \"postman\",\r\n        \"originalCode\": \"\",\r\n        \"code\": \"// test2\",\r\n        \"fullEditorId\": \"postman\",\r\n        \"editorId\": \"postman\",\r\n        \"isLoading\": false,\r\n        \"id\": \"6655845764654296005\",\r\n        \"source\": \"// test2\",\r\n        \"data\": {\r\n            \"Cwe\": -1,\r\n            \"CxDescriptionID\": -1\r\n        }\r\n    }\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1220,7 +1262,7 @@
 							"response": []
 						},
 						{
-							"name": "Create Query",
+							"name": "Compile New Query",
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
 									"accept": true,
@@ -1238,7 +1280,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n    {\r\n        \"Id\": \"0\",\r\n        \"editorId\": \"New_Query2/Corp\",\r\n        \"fullEditorId\": \"Java/New_Query2/Corp\",\r\n        \"clientUniqId\": \"Java/New_Query2/Corp\",\r\n        \"code\": \"///  asd\",\r\n        \"newQuery2\": true,\r\n        \"group\": \"Java_Low_Visibility\",\r\n        \"isLoading\": false,\r\n        \"lang\": \"Java\",\r\n        \"level\": \"Corp\",\r\n        \"name\": \"New_Query2\",\r\n        \"presets\": [],\r\n        \"data\": {\r\n            \"Cwe\": -1,\r\n            \"CxDescriptionID\": -1,\r\n            \"IsExecutable\": true,\r\n            \"Modified\": \"2023-04-26T12:47:33.754Z\",\r\n            \"Path\": \"queries/Java/Java_Low_Visibility/New_Query2/New_Query2.cs\",\r\n            \"Query2DescriptionID\": \"\",\r\n            \"Severity\": 0\r\n        },\r\n        \"id\": \"4204725935700289668\",\r\n        \"source\": \"///  asd\",\r\n        \"path\": \"queries/Java/Java_Low_Visibility/New_Query2/New_Query2.cs\"\r\n    }\r\n]",
+									"raw": "[\r\n    {\r\n        \"Id\": \"0\",\r\n        \"editorId\": \"TestQuery2/Corp\",\r\n        \"fullEditorId\": \"Java/TestQuery2/Corp\",\r\n        \"clientUniqId\": \"Java/TestQuery2/Corp\",\r\n        \"code\": \"///  asd\",\r\n        \"newQuery\": true,\r\n        \"group\": \"Java_Spring\",\r\n        \"isLoading\": false,\r\n        \"lang\": \"Java\",\r\n        \"level\": \"Corp\",\r\n        \"name\": \"TestQuery2\",\r\n        \"presets\": [],\r\n        \"data\": {\r\n            \"Cwe\": -1,\r\n            \"CxDescriptionID\": -1,\r\n            \"IsExecutable\": true,\r\n            \"Modified\": \"2023-04-26T12:47:33.754Z\",\r\n            \"Path\": \"queries/Java/Java_Spring/TestQuery2/TestQuery2.cs\",\r\n            \"Query3DescriptionID\": \"\",\r\n            \"Severity\": 0\r\n        },\r\n        \"id\": \"4204725935700289668\",\r\n        \"source\": \"///  asd\",\r\n        \"path\": \"queries/Java/Java_Spring/TestQuery2/TestQuery2.cs\"\r\n    }\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1314,7 +1356,7 @@
 							"response": []
 						},
 						{
-							"name": "Save Query",
+							"name": "Update Existing Query",
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
 									"accept": true,
@@ -1332,7 +1374,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[{\"name\":\"Cheeseburgers\",\"path\":\"queries/JavaScript/JavaScript_Low_Visibility/Cheeseburgers/Cheeseburgers.cs\",\"source\":\"result = Find_Strings().FindByName(\\\"cheeseburger\\\");\"}]",
+									"raw": "[\r\n    {\r\n        \"name\": \"Spring_Missing_Expect_CT_Header\",\r\n        \"path\": \"queries/Java/Java_Spring/Spring_Missing_Expect_CT_Header/Spring_Missing_Expect_CT_Header.cs\",\r\n        \"source\": \"result = base.Spring_Missing_Expect_CT_Header(); // test\",\r\n        \"metadata\": {\r\n            \"Severity\": 0,\r\n            \"severity\": 0\r\n        },\r\n        \"data\": {\r\n            \"Severity\": 0,\r\n            \"severity\": 0\r\n        },\r\n        \"Severity\":0,\r\n        \"severity\":0\r\n    }\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1360,8 +1402,107 @@
 									"variable": [
 										{
 											"key": "level",
-											"value": "Corp",
+											"value": "0e253255-c25a-453d-8d8f-95f224a09f3f",
 											"description": "can be: Corp, ProjectID, or (in the future?) applicationID"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save New Query",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"path\": \"queries/JavaScript/JavaScript_Low_Visibility/\",\r\n    \"name\": \"Cheeseburgers\",\r\n    \"source\": \"result = Find_Strings().FindByName(\\\"cheeseburger\\\");\",\r\n    \"metadata\": {\r\n        \"Cwe\": -1,\r\n        \"CxDescriptionID\": -1,\r\n        \"IsExecutable\": true,\r\n        \"Modified\": \"2023-05-12T14:11:48.469Z\",\r\n        \"Path\": \"queries/JavaScript/JavaScript_Low_Visibility/Cheeseburgers/Cheeseburgers.cs\",\r\n        \"QueryDescriptionID\": \"\",\r\n        \"Severity\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/cx-audit/queries/:auditSession",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"cx-audit",
+										"queries",
+										":auditSession"
+									],
+									"variable": [
+										{
+											"key": "auditSession",
+											"value": "{{Cx1_AuditSession}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Query",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"path\": \"queries/Java/Java_Spring/\",\r\n    \"name\": \"TestQuery8\",\r\n    \"source\": \"// test query8\",\r\n    \"metadata\": {\r\n        \"Cwe\": -1,\r\n        \"CxDescriptionID\": -1,\r\n        \"IsExecutable\": true,\r\n        \"Modified\": \"2023-05-01T14:11:48.469Z\",\r\n        \"Path\": \"queries/Java/Java_Spring/TestQuery8/TestQuery8.cs\",\r\n        \"QueryDescriptionID\": \"\",\r\n        \"Severity\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/cx-audit/queries/:level/:path",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"cx-audit",
+										"queries",
+										":level",
+										":path"
+									],
+									"variable": [
+										{
+											"key": "level",
+											"value": "Corp"
+										},
+										{
+											"key": "path",
+											"value": "queries%2FJavaScript%2FJavaScript_High_Risk%2FCheeseburgers%2FCheeseburgers.cs"
 										}
 									]
 								}
@@ -1427,6 +1568,377 @@
 											"key": "briefRepresentation",
 											"value": "true",
 											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Migration",
+					"item": [
+						{
+							"name": "Get Data Export Upload URI",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_UploadURI\", pm.response.json().url);\r",
+											"urlstr = pm.environment.get(\"Cx1_UploadURI\").split( \"?\", 2 )[0]\r",
+											"urlstr = urlstr.split( \"/\" )\r",
+											"pm.environment.set( \"Cx1_MigrationDataFile\", urlstr[ urlstr.length - 1 ] )\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/uploads",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"uploads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Data Export to URI",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Work/code/sast-to-ast-export-mk/build/windows/amd64/presetonly1.zip"
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_UploadURI}}",
+									"host": [
+										"{{Cx1_UploadURI}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Project Mapping Upload URI Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_UploadURI\", pm.response.json().url);\r",
+											"urlstr = pm.environment.get(\"Cx1_UploadURI\").split( \"?\", 2 )[0]\r",
+											"urlstr = urlstr.split( \"/\" )\r",
+											"pm.environment.set( \"Cx1_MigrationProjectMappingFile\", urlstr[ urlstr.length - 1 ] )\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/uploads",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"uploads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Data Export to URI Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Work/code/sast-to-ast-export-mk/build/windows/amd64/presetonly1.zip"
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_UploadURI}}",
+									"host": [
+										"{{Cx1_UploadURI}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start Import",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_MigrationId\", pm.response.json().migrationId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fileName\": \"{{Cx1_MigrationDataFile}}\",\r\n    \"projectsMappingFileName\": \"{{Cx1_MigrationProjectMappingFile}}\",\r\n    \"encryptionKey\": \"Uo9B+aCL4Z1rhemrUzUEQLCj3hX15yHxx99FQ9+vyc8=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/imports",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"imports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Imports",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_MigrationId\", pm.response.json()[pm.response.json().length-1].migrationId);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/imports",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"imports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Import Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/imports/:migrationId",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"imports",
+										":migrationId"
+									],
+									"variable": [
+										{
+											"key": "migrationId",
+											"value": "{{Cx1_MigrationId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Import Logs",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/imports/:migrationId/logs/download",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"imports",
+										":migrationId",
+										"logs",
+										"download"
+									],
+									"variable": [
+										{
+											"key": "migrationId",
+											"value": "{{Cx1_MigrationId}}"
 										}
 									]
 								}
@@ -1657,7 +2169,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/projects/?name=ssba&limit=1",
+									"raw": "{{Cx1_URL}}/api/projects/?name=Burgertest2",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -1674,11 +2186,17 @@
 										},
 										{
 											"key": "name",
-											"value": "ssba"
+											"value": "Burgertest2"
 										},
 										{
 											"key": "limit",
-											"value": "1"
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "exact",
+											"value": "true",
+											"disabled": true
 										}
 									]
 								}
@@ -1922,49 +2440,6 @@
 							"response": []
 						},
 						{
-							"name": "Get Query",
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {
-									"accept": true,
-									"user-agent": true
-								}
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json; version=1.0",
-										"type": "default"
-									}
-								],
-								"url": {
-									"raw": "{{Cx1_URL}}/api/cx-audit/queries/:scope/:query",
-									"host": [
-										"{{Cx1_URL}}"
-									],
-									"path": [
-										"api",
-										"cx-audit",
-										"queries",
-										":scope",
-										":query"
-									],
-									"variable": [
-										{
-											"key": "scope",
-											"value": "Corp"
-										},
-										{
-											"key": "query",
-											"value": "queries%2FJava%2Fundefined%2FNew_Query%2FNew_Query.cs"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Get Queries Preset",
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
@@ -2013,7 +2488,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/presets",
+									"raw": "{{Cx1_URL}}/api/presets?limit=100",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2024,8 +2499,7 @@
 									"query": [
 										{
 											"key": "limit",
-											"value": "100",
-											"disabled": true
+											"value": "100"
 										}
 									]
 								}
@@ -2348,7 +2822,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}",
+									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}&limit=27",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2366,6 +2840,10 @@
 											"key": "status",
 											"value": "FIXED",
 											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "27"
 										}
 									]
 								}
@@ -3050,7 +3528,7 @@
 								"body": {
 									"mode": "file",
 									"file": {
-										"src": "/C:/Work/code/simple-c-command-injection- too long dataflow.zip"
+										"src": "/C:/Work/code/simple-javascript-xss-burger.zip"
 									}
 								},
 								"url": {
@@ -3092,7 +3570,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \"PR-2-master\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"true\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"Checkmarx Default\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \".unknown\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"e2e-test-burger1\"\r\n            }\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
