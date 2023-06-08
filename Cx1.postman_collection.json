@@ -6,6 +6,192 @@
 	},
 	"item": [
 		{
+			"name": "Authorizations",
+			"item": [
+				{
+					"name": "Get Entities with access to Resource",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/entities-for?resource-id={{Cx1_TenantID}}&resource-type=tenant",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								"entities-for"
+							],
+							"query": [
+								{
+									"key": "resource-id",
+									"value": "{{Cx1_TenantID}}"
+								},
+								{
+									"key": "resource-type",
+									"value": "tenant"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resources accessible by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/resources-for?entity-id={{Cx1_UserId}}&entity-type=user&resource-types=tenant",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								"resources-for"
+							],
+							"query": [
+								{
+									"key": "entity-id",
+									"value": "{{Cx1_UserId}}"
+								},
+								{
+									"key": "entity-type",
+									"value": "user"
+								},
+								{
+									"key": "resource-types",
+									"value": "tenant"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resource-Entity Assignment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/?entity-id={{Cx1_UserId}}&resource-id={{Cx1_TenantID}}",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								""
+							],
+							"query": [
+								{
+									"key": "entity-id",
+									"value": "{{Cx1_UserId}}"
+								},
+								{
+									"key": "resource-id",
+									"value": "{{Cx1_TenantID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User Has Access check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/has-access?resource-id={{Cx1_TenantID}}&resource-type=tenant&action=all",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								"has-access"
+							],
+							"query": [
+								{
+									"key": "resource-id",
+									"value": "{{Cx1_TenantID}}"
+								},
+								{
+									"key": "resource-type",
+									"value": "tenant"
+								},
+								{
+									"key": "action",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User Resources list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/get-resources?resource-types=tenant,project&action=delete",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								"get-resources"
+							],
+							"query": [
+								{
+									"key": "resource-types",
+									"value": "tenant,project"
+								},
+								{
+									"key": "action",
+									"value": "delete"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User access to Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"entityID\": \"{{Cx1_UserID}}\",\r\n    \"entityName\": \"username\",\r\n    \"entityType\": \"user\",\r\n    \"entityRoles\": [\r\n        \"ast-admin\"\r\n    ],\r\n    \"resourceType\": \"project\",\r\n    \"resourceName\": \"projectname\",\r\n    \"resourceID\": \"{{Cx1_ProjectID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cx1_URL}}/api/access-management/",
+							"host": [
+								"{{Cx1_URL}}"
+							],
+							"path": [
+								"api",
+								"access-management",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Regular user",
 			"item": [
 				{
@@ -2169,7 +2355,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/projects/?name=Burgertest2",
+									"raw": "{{Cx1_URL}}/api/projects/?name=ssba",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2186,7 +2372,7 @@
 										},
 										{
 											"key": "name",
-											"value": "Burgertest2"
+											"value": "ssba"
 										},
 										{
 											"key": "limit",
@@ -2822,7 +3008,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}&limit=27",
+									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2843,7 +3029,8 @@
 										},
 										{
 											"key": "limit",
-											"value": "27"
+											"value": "27",
+											"disabled": true
 										}
 									]
 								}
@@ -3055,7 +3242,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/scans?project-id={{Cx1_ProjectId}}&statuses=Completed&limit=1&sort=+created_at",
+									"raw": "{{Cx1_URL}}/api/scans?project-id={{Cx1_ProjectId}}&statuses=Completed&sort=+created_at",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -3079,7 +3266,8 @@
 										},
 										{
 											"key": "limit",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "sort",
@@ -3637,6 +3825,63 @@
 										"api",
 										"scans",
 										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Compare Scans",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/sast-results/compare?scan-id={{Cx1_ScanId}}&base-scan-id=b707366b-a126-4834-87fc-ab204d8b4aa4",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"sast-results",
+										"compare"
+									],
+									"query": [
+										{
+											"key": "scan-id",
+											"value": "{{Cx1_ScanId}}"
+										},
+										{
+											"key": "base-scan-id",
+											"value": "b707366b-a126-4834-87fc-ab204d8b4aa4"
+										},
+										{
+											"key": "status",
+											"value": "FIXED",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -7773,6 +8018,54 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Get Tenant Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Cx1_TenantID\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}",
+							"host": [
+								"{{Cx1_IAM}}"
+							],
+							"path": [
+								"auth",
+								"admin",
+								"realms",
+								"{{Cx1_Tenant}}"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"auth": {
