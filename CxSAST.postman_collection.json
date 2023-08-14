@@ -1,0 +1,3100 @@
+{
+	"info": {
+		"_postman_id": "c852d30b-5007-4d92-9edc-f441b6f46fdc",
+		"name": "CxSAST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Roles and misc accesscontrol",
+			"item": [
+				{
+					"name": "Get Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/roles",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Auth Providers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/AuthenticationProviders",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"AuthenticationProviders"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OIDC Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCClients",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCClients"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OIDC Client Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCClients/:id",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCClients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "13"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove OIDC Client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCClients/:id",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCClients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "17"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Update OIDC Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 19,\r\n    \"updateAccessTokenClaimsOnRefresh\": true,\r\n    \"accessTokenType\": 0,\r\n    \"includeJwtId\": true,\r\n    \"alwaysIncludeUserClaimsInIdToken\": true,\r\n    \"clientId\": \"SAST2CX1_short\",\r\n    \"clientName\": \"SAST2CX1_short\",\r\n    \"allowOfflineAccess\": true,\r\n    \"clientSecrets\": [],\r\n    \"allowedGrantTypes\": [\r\n        \"offline_access\",\r\n        \"authorization_code\"\r\n    ],\r\n    \"allowedScopes\": [\r\n        \"sast_api\",\r\n        \"access_control_api\"\r\n    ],\r\n    \"enabled\": true,\r\n    \"requireClientSecret\": false,\r\n    \"redirectUris\": [\r\n        \"http://SAST2Cx1:8000/oauth_redirect.html\",\r\n        \"http://SAST2Cx1/oauth_redirect.html\"\r\n    ],\r\n    \"postLogoutRedirectUris\": [],\r\n    \"frontChannelLogoutUri\": null,\r\n    \"frontChannelLogoutSessionRequired\": false,\r\n    \"backChannelLogoutUri\": null,\r\n    \"backChannelLogoutSessionRequired\": false,\r\n    \"identityTokenLifetime\": 86400,\r\n    \"accessTokenLifetime\": 60,\r\n    \"authorizationCodeLifetime\": 3660,\r\n    \"absoluteRefreshTokenLifetime\": 86400,\r\n    \"slidingRefreshTokenLifetime\": 3660,\r\n    \"refreshTokenUsage\": 3660,\r\n    \"refreshTokenExpiration\": 86400,\r\n    \"allowedCorsOrigins\": [],\r\n    \"allowAccessTokensViaBrowser\": true,\r\n    \"claims\": [],\r\n    \"clientClaimsPrefix\": null,\r\n    \"requirePkce\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCClients/:id",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCClients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "19"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Add OIDC Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 13,\r\n    \"updateAccessTokenClaimsOnRefresh\": true,\r\n    \"accessTokenType\": 0,\r\n    \"includeJwtId\": true,\r\n    \"alwaysIncludeUserClaimsInIdToken\": true,\r\n    \"clientId\": \"SAST2CX1_refresh\",\r\n    \"clientName\": \"SAST2CX1_refresh\",\r\n    \"allowOfflineAccess\": true,\r\n    \"clientSecrets\": [],\r\n    \"allowedGrantTypes\": [\r\n        \"refresh_token\"\r\n    ],\r\n    \"allowedScopes\": [\r\n        \"sast_api\",\r\n        \"sast_rest_api\",\r\n        \"access_control_api\"\r\n    ],\r\n    \"enabled\": true,\r\n    \"requireClientSecret\": false,\r\n    \"redirectUris\": [\r\n        \"http://SAST2Cx1:8000/oauth_redirect.html\",\r\n        \"http://SAST2Cx1/oauth_redirect.html\"\r\n    ],\r\n    \"postLogoutRedirectUris\": [],\r\n    \"frontChannelLogoutUri\": null,\r\n    \"frontChannelLogoutSessionRequired\": false,\r\n    \"backChannelLogoutUri\": null,\r\n    \"backChannelLogoutSessionRequired\": false,\r\n    \"identityTokenLifetime\": 15,\r\n    \"accessTokenLifetime\": 15,\r\n    \"authorizationCodeLifetime\": 3660,\r\n    \"absoluteRefreshTokenLifetime\": 3660,\r\n    \"slidingRefreshTokenLifetime\": 3660,\r\n    \"refreshTokenUsage\": 3660,\r\n    \"refreshTokenExpiration\": 3660,\r\n    \"allowedCorsOrigins\": [],\r\n    \"allowAccessTokensViaBrowser\": true,\r\n    \"claims\": [],\r\n    \"clientClaimsPrefix\": null,\r\n    \"requirePkce\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCClients/",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCClients",
+								""
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OIDC API Resources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/OIDCApiResources",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"OIDCApiResources"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Auth configuration",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/configurations",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"configurations"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users and Teams",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/users",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teams",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/teams",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TestTeam1\",\r\n    \"parentId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/teams",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Team",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TestTeam1\",\r\n    \"parentId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/teams/:teamId",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"teams",
+								":teamId"
+							],
+							"variable": [
+								{
+									"key": "teamId",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/auth/MyProfile",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"auth",
+								"MyProfile"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get Project List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "projectName",
+									"value": "com.sap.copin.changelog-ui",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "1326",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/projects",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "projectName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "projectName",
+									"value": "com.sap.copin.changelog-ui",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "1326",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/projects/:projectid",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"projects",
+								":projectid"
+							],
+							"query": [
+								{
+									"key": "projectName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "projectid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Info v2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=2.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "projectName",
+									"value": "com.sap.copin.changelog-ui",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "1326",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/projects/:projectid",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"projects",
+								":projectid"
+							],
+							"query": [
+								{
+									"key": "projectName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "projectid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Source Settings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "projectName",
+									"value": "com.sap.copin.changelog-ui",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "1326",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/projects/:projectID/sourceCode/remoteSettings/:repotype",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"projects",
+								":projectID",
+								"sourceCode",
+								"remoteSettings",
+								":repotype"
+							],
+							"variable": [
+								{
+									"key": "projectID",
+									"value": "34"
+								},
+								{
+									"key": "repotype",
+									"value": "git"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scans",
+			"item": [
+				{
+					"name": "Get Project Scans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/?projectid=79287",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								""
+							],
+							"query": [
+								{
+									"key": "projectid",
+									"value": "79287"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "get sast scan settings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scanSettings/:projectid",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scanSettings",
+								":projectid"
+							],
+							"variable": [
+								{
+									"key": "projectid",
+									"value": "19"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Update SAST Scan",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"projectId\":19,\"presetId\":1,\"engineConfigurationId\":1}"
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scanSettings",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scanSettings"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scansQueue",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scansQueue"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "1000037"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Start Scan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							},
+							{
+								"key": "cxOrigin",
+								"value": "Postman",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"projectId\": 34, \r\n   \"isIncremental\": false, \r\n   \"isPublic\": true, \r\n   \"forceScan\": false, \r\n   \"comment\": \"pman\" \r\n}"
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Start Scan With Settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							},
+							{
+								"key": "cxOrigin",
+								"value": "Postman",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "projectId",
+									"value": "28",
+									"type": "text"
+								},
+								{
+									"key": "isIncremental",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "isPublic",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "forceScan",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "presetId",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "engineConfigurationId",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "zippedSource",
+									"type": "file",
+									"src": "/C:/Work/code/ssba/SSBAv0.1.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scanWithSettings",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scanWithSettings"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Source Code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "zippedSource",
+									"type": "file",
+									"src": "/C:/Work/code/noncode/noncode.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/projects/:projectId/sourceCode/attachments",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"projects",
+								":projectId",
+								"sourceCode",
+								"attachments"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get scan statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/statistics",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"statistics"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "1000118"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get scan  results statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/resultsStatistics",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"resultsStatistics"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "1000118"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get scan succeeded general queries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/succeededGeneralQueries",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"succeededGeneralQueries"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "9508466"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Results and Reports",
+			"item": [
+				{
+					"name": "Get results statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/resultsStatistics",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"resultsStatistics"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "9879495"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get results shortdescription",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/results/:pathid/shortDescription",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"results",
+								":pathid",
+								"shortDescription"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "9508469"
+								},
+								{
+									"key": "pathid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get results labels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/scans/:scanid/results/:pathid/labels",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"scans",
+								":scanid",
+								"results",
+								":pathid",
+								"labels"
+							],
+							"variable": [
+								{
+									"key": "scanid",
+									"value": "9508466"
+								},
+								{
+									"key": "pathid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.environment.set(\"reportid\", data.reportId );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"reportType\": \"CSV\",\r\n  \"scanId\": 8915296  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/reports/sastScan",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"reports",
+								"sastScan"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate report status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"reportType\": \"XML\",\r\n  \"scanId\": 9953836  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/reports/sastScan/:reportid/status",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"reports",
+								"sastScan",
+								":reportid",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "reportid",
+									"value": "{{reportid}}"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/reports/sastScan/:reportId",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"reports",
+								"sastScan",
+								":reportId"
+							],
+							"variable": [
+								{
+									"key": "reportId",
+									"value": "{{reportid}}"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Query and Preset",
+			"item": [
+				{
+					"name": "Get Presets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/presets",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"presets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Preset Info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/presets/:presetId",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"presets",
+								":presetId"
+							],
+							"variable": [
+								{
+									"key": "presetId",
+									"value": "53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Engines",
+			"item": [
+				{
+					"name": "Get Engines",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/cxrestapi/sast/engineServers",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxrestapi",
+								"sast",
+								"engineServers"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get engine confs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{SAST_Token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;v=1.0"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/sast/engineConfigurations",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"sast",
+								"engineConfigurations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OData",
+			"item": [
+				{
+					"name": "Get OData",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/Cxwebinterface/odata/v1/Scans(9363310)?$expand=Results($expand=Query,State;$filter=StateId%20ne%201%20and%20Severity%20ne%20'Info')&$select=Id,ScanCompletedOn,High,Medium,Low",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"Cxwebinterface",
+								"odata",
+								"v1",
+								"Scans(9363310)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Results($expand=Query,State;$filter=StateId%20ne%201%20and%20Severity%20ne%20'Info')"
+								},
+								{
+									"key": "$select",
+									"value": "Id,ScanCompletedOn,High,Medium,Low"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OData Scans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/Cxwebinterface/odata/v1/Scans?$select=LOC,Id",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"Cxwebinterface",
+								"odata",
+								"v1",
+								"Scans"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "LOC,Id"
+								}
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OData Results",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/Cxwebinterface/odata/v1/Results",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"Cxwebinterface",
+								"odata",
+								"v1",
+								"Results"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OData Projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{SAST_Token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;v=1.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SAST_URL}}/Cxwebinterface/odata/v1/Projects(1)",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"Cxwebinterface",
+								"odata",
+								"v1",
+								"Projects(1)"
+							]
+						},
+						"description": "\t\t\t\t"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SOAP",
+			"item": [
+				{
+					"name": "Get Queries Collection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetQueryCollection",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetQueryCollection xmlns=\"http://Checkmarx.com\">\r\n            <i_SessionID></i_SessionID>\r\n        </GetQueryCollection>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Queries Collection 88",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetQueryCollection",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetQueryCollection xmlns=\"http://Checkmarx.com\">\r\n            <sessionId>996381585275378514023ec95787-6a82-4eef-ade2-f9b4ca08b6abdyeBpyCMQaYAa0xZEdvB_gwz0h_3G8hJCLz1</sessionId>\r\n        </GetQueryCollection>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users 88",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetAllUsers",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetAllUsers xmlns=\"http://Checkmarx.com\">\r\n            <sessionID>99638162946949282160e0dd6548-ed79-46d1-8e47-dd049b8377ednRgD6b6kfkeLYtodsgM8gUqo9r0mPuPuYaor</sessionID>\r\n        </GetAllUsers>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SOAP Session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/Login",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Login xmlns=\"http://Checkmarx.com\">\r\n      <applicationCredentials>\r\n        <User>check</User>\r\n        <Pass>Checkmarx!123</Pass>\r\n      </applicationCredentials>\r\n      <lcid>1033</lcid>\r\n    </Login>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SOAP Session 88",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/Login",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Login xmlns=\"http://Checkmarx.com\">\r\n      <applicationCredentials>\r\n        <User>check</User>\r\n        <Pass>Checkmarx!123</Pass>\r\n      </applicationCredentials>\r\n      <lcid>1033</lcid>\r\n    </Login>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Audit/CxAuditWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Audit",
+								"CxAuditWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filenames For Path",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetFileNamesForPath",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetFileNamesForPath xmlns=\"http://Checkmarx.com\">\r\n            <sessionId></sessionId>\r\n            <scanId>1000035</scanId>\r\n            <pathId>1</pathId>\r\n        </GetFileNamesForPath>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filenames For Path SDK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetFileNamesForPath",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetFileNamesForPath xmlns=\"http://Checkmarx.com/v7\">\r\n            <sessionId></sessionId>\r\n            <scanId>1000040</scanId>\r\n            <pathId>1</pathId>\r\n        </GetFileNamesForPath>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/SDK/CxSDKWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"SDK",
+								"CxSDKWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Result Path SDK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetResultPath",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetResultPath xmlns=\"http://Checkmarx.com/v7\">\r\n            <sessionId></sessionId>\r\n            <scanId>1000035</scanId>\r\n            <pathId>1</pathId>\r\n        </GetResultPath>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/SDK/CxSDKWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"SDK",
+								"CxSDKWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Extended Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetScansDisplayExtendedData",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetScansDisplayExtendedData xmlns=\"http://Checkmarx.com\">\r\n            <sessionId></sessionId>\r\n            <scanId>1000035</scanId>\r\n        </GetScansDisplayExtendedData>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Sources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetSourcesByScanID",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetSourcesByScanID xmlns=\"http://Checkmarx.com\">\r\n            <sessionID></sessionID>\r\n            <scanID>1000035</scanID>\r\n            <filesToRetreive><string>\\big-file-test\\index.html</string></filesToRetreive>\r\n        </GetSourcesByScanID>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Portal/CxWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Portal",
+								"CxWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Source Code For Scan 88",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetSourceCodeForScan",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <soap:Body>\r\n        <GetSourceCodeForScan xmlns=\"http://Checkmarx.com/v7\">\r\n            <sessionID>99638158659697859749e110a4e5-40ab-4d0f-97e5-08a63861a5bba0xnWXXQLGCHnDH98kJkb5KHvXVQEujhY8fe</sessionID>\r\n            <scanId>1000000</scanId>\r\n        </GetSourceCodeForScan>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Audit/CxAuditWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Audit",
+								"CxAuditWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Source Code For Scan 88 WS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetSourceCodeForScan",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <soap:Body>\r\n        <GetSourceCodeForScan xmlns=\"http://Checkmarx.com/v7\">\r\n            <sessionID>99638158659697859749e110a4e5-40ab-4d0f-97e5-08a63861a5bba0xnWXXQLGCHnDH98kJkb5KHvXVQEujhY8fe</sessionID>\r\n            <scanId>1000000</scanId>\r\n        </GetSourceCodeForScan>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/Audit/CxAuditWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"Audit",
+								"CxAuditWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Sources SDK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetSourcesByScanID",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetSourcesByScanID xmlns=\"http://Checkmarx.com/v7\">\r\n            <sessionID></sessionID>\r\n            <scanID>1000035</scanID>\r\n            <filesToRetreive><string>\\big-file-test\\index.html</string></filesToRetreive>\r\n        </GetSourcesByScanID>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/SDK/CxSDKWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"SDK",
+								"CxSDKWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scan Summary SDK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/v7/GetScanSummary",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetScanSummary xmlns=\"http://Checkmarx.com/v7\">\r\n            <SessionID></SessionID>\r\n            <ScanID>1000035</ScanID>\r\n        </GetScanSummary>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/CxWebInterface/SDK/CxSDKWebService.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"CxWebInterface",
+								"SDK",
+								"CxSDKWebService.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Webservice URL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Soapaction",
+								"value": "http://Checkmarx.com/GetWebServiceUrl",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <GetWebServiceUrl xmlns=\"http://Checkmarx.com\">\r\n            <ClientType>WebPortal</ClientType>\r\n            <APIVersion>1</APIVersion>\r\n        </GetWebServiceUrl>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SAST_URL}}/cxwebinterface/CxWsResolver.asmx",
+							"host": [
+								"{{SAST_URL}}"
+							],
+							"path": [
+								"cxwebinterface",
+								"CxWsResolver.asmx"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api access_control_api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resource_owner_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token 88",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api access_control_api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resource_owner_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token SOAP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_api offline_access",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resource_owner_sast_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token 1-min",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api access_control_api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resource_owner_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token SAST2CX1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api access_control_api",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "SAST2CX1",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "ikHtBUafaR2DURq8nMYY7GygsJt8vAUyKw5A_5jEQaI",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token OData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_api offline_access",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "014DF517-39D1-4453-B7B3-9930C563627C",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resource_owner_sast_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token cicd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"SAST_Token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "VnzTVqI4dHC1E04Mzzj2qlprk86nWPC4",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "cicd_pipeline_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/cxrestapi/auth/identity/connect/token",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"cxrestapi",
+						"auth",
+						"identity",
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get OIDC info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"token\", data.access_token );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{SAST_User}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{SAST_Password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "sast_rest_api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "VnzTVqI4dHC1E04Mzzj2qlprk86nWPC4",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "cicd_pipeline_client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SAST_URL}}/CxRestAPI/auth/identity/.well-known/openid-configuration",
+					"host": [
+						"{{SAST_URL}}"
+					],
+					"path": [
+						"CxRestAPI",
+						"auth",
+						"identity",
+						".well-known",
+						"openid-configuration"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{SAST_Token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
