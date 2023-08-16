@@ -1022,7 +1022,7 @@
 										},
 										{
 											"key": "query",
-											"value": "queries%2fJavaScript%2fJavaScript_High_Risk%2fClient_DOM_XSS%2fClient_DOM_XSS.cs"
+											"value": "queries%2fJava%2fJava_High_Risk%2fSQL_Injection%2fSQL_Injection.cs"
 										}
 									]
 								}
@@ -2228,21 +2228,21 @@
 									}
 								],
 								"url": {
-									"raw": "https://deu.ast.checkmarx.net/storage/audit.frankfurt.eu-central-1-602005780816/audit/fb1903d3-6931-4121-87e1-ac805eb87c87/2023/ast-audit-2023-01-19.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ast%2F20230124%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230124T152907Z&X-Amz-Expires=3600&X-Amz-Signature=6ce5bf5a94ff7957a75ca38320abf28bc1ac9fcfac8415cf81189d718f626874&X-Amz-SignedHeaders=host",
+									"raw": "https://eu.ast.checkmarx.net/storage/audit.ireland.eu-west-1-602005780816/audit/30c78f85-c81c-40d9-b6a7-aaad347ae801/2023/ast-audit-2023-06-19.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ast%2F20230726%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230726T044514Z&X-Amz-Expires=3600&X-Amz-Signature=964cb9bcb5c29531b9e674a3196d1f47513bce1849b4ff7fe5780c8e668475e5&X-Amz-SignedHeaders=host",
 									"protocol": "https",
 									"host": [
-										"deu",
+										"eu",
 										"ast",
 										"checkmarx",
 										"net"
 									],
 									"path": [
 										"storage",
-										"audit.frankfurt.eu-central-1-602005780816",
+										"audit.ireland.eu-west-1-602005780816",
 										"audit",
-										"fb1903d3-6931-4121-87e1-ac805eb87c87",
+										"30c78f85-c81c-40d9-b6a7-aaad347ae801",
 										"2023",
-										"ast-audit-2023-01-19.json"
+										"ast-audit-2023-06-19.json"
 									],
 									"query": [
 										{
@@ -2251,11 +2251,11 @@
 										},
 										{
 											"key": "X-Amz-Credential",
-											"value": "ast%2F20230124%2Feu-central-1%2Fs3%2Faws4_request"
+											"value": "ast%2F20230726%2Feu-west-1%2Fs3%2Faws4_request"
 										},
 										{
 											"key": "X-Amz-Date",
-											"value": "20230124T152907Z"
+											"value": "20230726T044514Z"
 										},
 										{
 											"key": "X-Amz-Expires",
@@ -2263,7 +2263,7 @@
 										},
 										{
 											"key": "X-Amz-Signature",
-											"value": "6ce5bf5a94ff7957a75ca38320abf28bc1ac9fcfac8415cf81189d718f626874"
+											"value": "964cb9bcb5c29531b9e674a3196d1f47513bce1849b4ff7fe5780c8e668475e5"
 										},
 										{
 											"key": "X-Amz-SignedHeaders",
@@ -2320,6 +2320,30 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Get Flags",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/flags?filter={{Cx1_TenantID}}",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "{{Cx1_TenantID}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -2355,7 +2379,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/projects/?name=ssba",
+									"raw": "{{Cx1_URL}}/api/projects/?name=1000",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2372,7 +2396,7 @@
 										},
 										{
 											"key": "name",
-											"value": "ssba"
+											"value": "1000"
 										},
 										{
 											"key": "limit",
@@ -3008,7 +3032,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}",
+									"raw": "{{Cx1_URL}}/api/results/?scan-id={{Cx1_ScanId}}&limit=100",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -3029,8 +3053,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "27",
-											"disabled": true
+											"value": "100"
 										}
 									]
 								}
@@ -3242,7 +3265,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/scans?project-id={{Cx1_ProjectId}}&statuses=Completed&sort=+created_at",
+									"raw": "{{Cx1_URL}}/api/scans?project-id={{Cx1_ProjectId}}&sort=+created_at",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -3257,7 +3280,8 @@
 										},
 										{
 											"key": "statuses",
-											"value": "Completed"
+											"value": "Completed",
+											"disabled": true
 										},
 										{
 											"key": "search",
@@ -3716,7 +3740,7 @@
 								"body": {
 									"mode": "file",
 									"file": {
-										"src": "/C:/Work/code/simple-javascript-xss-burger.zip"
+										"src": "/C:/Work/code/Code to scan/ssba/SSBAv0.1.zip"
 									}
 								},
 								"url": {
@@ -3758,7 +3782,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \".unknown\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"e2e-test-burger1\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \".unknown\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"e2e-test-burger1\"\r\n            }\r\n        }, {\"type\":\"kics\"}, {\"type\":\"sca\"}, {\"type\":\"apisec\"}\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3960,6 +3984,81 @@
 										{
 											"key": "briefRepresentation",
 											"value": "true"
+										},
+										{
+											"key": "search",
+											"value": "thisguy",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get KC Users Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_UserId\", pm.response.json()[0].id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/realms/{{Cx1_Tenant}}/users",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "first",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "max",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "username",
+											"disabled": true
 										},
 										{
 											"key": "search",
@@ -4424,7 +4523,7 @@
 									"variable": [
 										{
 											"key": "providerId",
-											"value": "auth-username-password-form"
+											"value": "auth-password-form"
 										}
 									]
 								}
@@ -5088,7 +5187,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users?email=testuser-go",
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users",
 									"host": [
 										"{{Cx1_IAM}}"
 									],
@@ -5127,7 +5226,8 @@
 										},
 										{
 											"key": "email",
-											"value": "testuser-go"
+											"value": "testuser-go",
+											"disabled": true
 										}
 									]
 								}
@@ -5244,6 +5344,17 @@
 						},
 						{
 							"name": "Get KC User Info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_UserId\", pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {
 									"accept": true,
@@ -5307,7 +5418,7 @@
 									"variable": [
 										{
 											"key": "userID",
-											"value": "{{Cx1_UserId}}"
+											"value": "068c7b44-6ac9-46da-a87d-df1cd775ab85"
 										}
 									]
 								}
@@ -5816,8 +5927,82 @@
 									"variable": [
 										{
 											"key": "appID",
-											"value": "8f855199-bf36-4c37-8edf-cbff9dd6aa37",
+											"value": "{{Cx1_ClientID}}",
 											"description": "ast-app"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User All Role Mappings",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users/{{Cx1_UserId}}/role-mappings/",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"users",
+										"{{Cx1_UserId}}",
+										"role-mappings",
+										""
+									],
+									"query": [
+										{
+											"key": "first",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "max",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "username",
+											"disabled": true
 										}
 									]
 								}
@@ -6007,7 +6192,7 @@
 							"response": []
 						},
 						{
-							"name": "Get User Realm Role Mappings Copy",
+							"name": "Get User Realm Role Mappings",
 							"event": [
 								{
 									"listen": "test",
@@ -6053,6 +6238,81 @@
 										"{{Cx1_UserId}}",
 										"role-mappings",
 										"realm"
+									],
+									"query": [
+										{
+											"key": "first",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "max",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "username",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Realm Available Role Mappings",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/users/{{Cx1_UserId}}/role-mappings/realm/available",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"users",
+										"{{Cx1_UserId}}",
+										"role-mappings",
+										"realm",
+										"available"
 									],
 									"query": [
 										{
@@ -6270,7 +6530,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"enabled\": true,\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"User\",\r\n    \"username\": \"Test User\",\r\n    \"email\": \"testuser@cx.local\",\r\n    \"groups\": []\r\n}",
+									"raw": "{\r\n    \"enabled\": true,\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"User\",\r\n    \"username\": \"Test User\",\r\n    \"email\": \"testuser@cx.local\",\r\n    \"groups\": [],\r\n        \"credentials\": [{\r\n            \"credentialData\": \"Checkmarx!1234\",\r\n            \"id\": \"password\",\r\n            \"secretData\": \"Checkmarx!1234\",\r\n            \"value\": \"Checkmarx!1234\"\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6591,7 +6851,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/groups?search=e2e-test-group",
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/groups?search=Test-Child",
 									"host": [
 										"{{Cx1_IAM}}"
 									],
@@ -6615,10 +6875,15 @@
 										},
 										{
 											"key": "search",
-											"value": "e2e-test-group"
+											"value": "Test-Child"
 										},
 										{
 											"key": "briefRepresentation",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "exact",
 											"value": "true",
 											"disabled": true
 										}
@@ -6943,7 +7208,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.environment.set(\"Cx1_UserId\", pm.response.json()[0].id);"
+											"pm.environment.set(\"Cx1_RoleId\", pm.response.json()[0].id);"
 										],
 										"type": "text/javascript"
 									}
@@ -6970,7 +7235,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/roles?briefRepresentation=true",
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/roles",
 									"host": [
 										"{{Cx1_IAM}}"
 									],
@@ -7004,7 +7269,8 @@
 										},
 										{
 											"key": "briefRepresentation",
-											"value": "true"
+											"value": "true",
+											"disabled": true
 										}
 									]
 								}
@@ -7018,7 +7284,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.environment.set(\"Cx1_RoleId\", pm.response.json().id);"
 										],
 										"type": "text/javascript"
 									}
@@ -7088,6 +7354,89 @@
 										{
 											"key": "roleId",
 											"value": "{{Cx1_RoleId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role By Name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/roles/:name",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"roles",
+										":name"
+									],
+									"query": [
+										{
+											"key": "first",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "max",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "username",
+											"disabled": true
+										},
+										{
+											"key": "briefRepresentation",
+											"value": "true",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "ast-admin"
 										}
 									]
 								}
@@ -7345,7 +7694,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"my-ast-admin\",\r\n    \"description\": \"Can do almost everything in ast app\",\r\n    \"composite\": true,\r\n    \"clientRole\": true,\r\n    \"containerId\": \"8f855199-bf36-4c37-8edf-cbff9dd6aa37\",\r\n    \"attributes\": {\r\n        \"creator\": [\r\n            \"Checkmarx\"\r\n        ],\r\n        \"type\": [\r\n            \"Role\"\r\n        ],\r\n        \"category\": [\r\n            \"Composite role\"\r\n        ]\r\n    }\r\n}",
+									"raw": "{\r\n    \"id\": \"5bc8be29-c63b-4750-83fd-739f640b9892\",\r\n    \"name\": \"derp2\",\r\n    \"composite\": true,\r\n    \"clientRole\": true,\r\n    \"containerId\": \"0378b941-87fa-4769-87ee-6045506cbafe\",\r\n    \"attributes\": {\r\n        \"creator\": [\r\n            \"nimda\"\r\n        ],\r\n        \"category\": [\r\n            \"Composite role\"\r\n        ],\r\n        \"type\": [\r\n            \"iam\"\r\n        ],\r\n        \"lastUpdate\": [\r\n            \"1691069315198\"\r\n        ]\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7443,7 +7792,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.environment.set(\"Cx1_ClientID\", pm.response.json()[0].id);"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -7470,7 +7819,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients",
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients?clientId=realm-management",
 									"host": [
 										"{{Cx1_IAM}}"
 									],
@@ -7509,13 +7858,185 @@
 										},
 										{
 											"key": "clientId",
-											"value": "swagger",
-											"disabled": true
+											"value": "realm-management"
 										},
 										{
 											"key": "search",
 											"value": "true",
 											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create KC Client",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"enabled\": true,\r\n    \"attributes\": {\r\n        \"lastUpdate\": \"1686202693303\"\r\n    },\r\n    \"redirectUris\": [],\r\n    \"clientId\": \"cx1clientgo_test\",\r\n    \"protocol\": \"openid-connect\",\r\n    \"frontchannelLogout\": true,\r\n    \"publicClient\": false,\r\n    \"serviceAccountsEnabled\": true,\r\n    \"standardFlowEnabled\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"clients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update KC Client",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"attributes\": {\r\n            \"secretExpiration\": \"30\",\r\n            \"notificationEmail\": \"michael.kubiaczyk@checkmarx.com,koobze@yahoo.com\"\r\n        }\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/{{Cx1_ClientID}}",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"clients",
+										"{{Cx1_ClientID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete KC Client",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/:clientId",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"clients",
+										":clientId"
+									],
+									"variable": [
+										{
+											"key": "clientId",
+											"value": "{{Cx1_ClientID}}"
 										}
 									]
 								}
@@ -7529,7 +8050,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.environment.set(\"Cx1_ClientID\", pm.response.json().id);"
 										],
 										"type": "text/javascript"
 									}
@@ -7556,7 +8077,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/{{Cx1_ClientID}}",
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/:clientId",
 									"host": [
 										"{{Cx1_IAM}}"
 									],
@@ -7566,7 +8087,7 @@
 										"realms",
 										"{{Cx1_Tenant}}",
 										"clients",
-										"{{Cx1_ClientID}}"
+										":clientId"
 									],
 									"query": [
 										{
@@ -7603,6 +8124,122 @@
 											"key": "search",
 											"value": "true",
 											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "clientId",
+											"value": "{{Cx1_ClientID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get KC Client Default Scope",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/{{Cx1_ClientID}}/default-client-scopes",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"clients",
+										"{{Cx1_ClientID}}",
+										"default-client-scopes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add KC Client Scope to Client",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/clients/{{Cx1_ClientID}}/default-client-scopes/:scopeId",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"clients",
+										"{{Cx1_ClientID}}",
+										"default-client-scopes",
+										":scopeId"
+									],
+									"variable": [
+										{
+											"key": "scopeId",
+											"value": "22b8ec70-5e73-481e-916b-d880e64d7474",
+											"description": "groups scope"
 										}
 									]
 								}
@@ -7779,9 +8416,58 @@
 									"variable": [
 										{
 											"key": "clientId",
-											"value": "8f855199-bf36-4c37-8edf-cbff9dd6aa37",
+											"value": "{{Cx1_ClientID}}",
 											"description": "ast-app"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get KC Client Scopes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_RoleId\", pm.response.json()[0].id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_IAM}}/auth/admin/realms/{{Cx1_Tenant}}/client-scopes",
+									"host": [
+										"{{Cx1_IAM}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"realms",
+										"{{Cx1_Tenant}}",
+										"client-scopes"
 									]
 								}
 							},
@@ -7865,12 +8551,12 @@
 									"variable": [
 										{
 											"key": "clientId",
-											"value": "8f855199-bf36-4c37-8edf-cbff9dd6aa37",
+											"value": "{{Cx1_ClientID}}",
 											"description": "ast-app"
 										},
 										{
 											"key": "roleName",
-											"value": "my-ast-admin"
+											"value": "view-realm"
 										}
 									]
 								}
