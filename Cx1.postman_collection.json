@@ -226,7 +226,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/applications/?limit=0",
+									"raw": "{{Cx1_URL}}/api/applications/?name=Application",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -243,12 +243,17 @@
 										},
 										{
 											"key": "name",
-											"value": "ssba-git-test",
-											"disabled": true
+											"value": "Application"
 										},
 										{
 											"key": "limit",
-											"value": "0"
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "exact",
+											"value": "true",
+											"disabled": true
 										}
 									]
 								}
@@ -967,7 +972,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/cx-audit/queries?projectId={{Cx1_ProjectId}}",
+									"raw": "{{Cx1_URL}}/api/cx-audit/queries",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -979,7 +984,8 @@
 									"query": [
 										{
 											"key": "projectId",
-											"value": "{{Cx1_ProjectId}}"
+											"value": "{{Cx1_ProjectId}}",
+											"disabled": true
 										}
 									]
 								}
@@ -1022,7 +1028,7 @@
 										},
 										{
 											"key": "query",
-											"value": "queries%2fJava%2fJava_High_Risk%2fSQL_Injection%2fSQL_Injection.cs"
+											"value": "queries%2fJava%2fJava_Spring%2fSpring_Missing_Expect_CT_Header%2fSpring_Missing_Expect_CT_Header.cs"
 										}
 									]
 								}
@@ -1560,7 +1566,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n    {\r\n        \"name\": \"Spring_Missing_Expect_CT_Header\",\r\n        \"path\": \"queries/Java/Java_Spring/Spring_Missing_Expect_CT_Header/Spring_Missing_Expect_CT_Header.cs\",\r\n        \"source\": \"result = base.Spring_Missing_Expect_CT_Header(); // test\",\r\n        \"metadata\": {\r\n            \"Severity\": 0,\r\n            \"severity\": 0\r\n        },\r\n        \"data\": {\r\n            \"Severity\": 0,\r\n            \"severity\": 0\r\n        },\r\n        \"Severity\":0,\r\n        \"severity\":0\r\n    }\r\n]",
+									"raw": "[\r\n    {\r\n        \"name\": \"Spring_Missing_Expect_CT_Header\",\r\n        \"path\": \"queries/Java/Java_Spring/Spring_Missing_Expect_CT_Header/Spring_Missing_Expect_CT_Header.cs\",\r\n        \"source\": \"result = base.Spring_Missing_Expect_CT_Header(); // test\",\r\n        \"metadata\": {\r\n            \"severity\": 3\r\n        }\r\n    }\r\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1588,7 +1594,7 @@
 									"variable": [
 										{
 											"key": "level",
-											"value": "0e253255-c25a-453d-8d8f-95f224a09f3f",
+											"value": "Corp",
 											"description": "can be: Corp, ProjectID, or (in the future?) applicationID"
 										}
 									]
@@ -2348,6 +2354,208 @@
 					]
 				},
 				{
+					"name": "Policies",
+					"item": [
+						{
+							"name": "Get Policies",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_PolicyId\", pm.response.json()[0].id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/policy_management_service_uri/policies",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"policy_management_service_uri",
+										"policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Policy Info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_PolicyId\", pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{Cx1_URL}}/api/policy_management_service_uri/policies/427",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"policy_management_service_uri",
+										"policies",
+										"427"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Policy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 427,\r\n    \"name\": \"Burger Alert\",\r\n    \"description\": \"who's hungry\",\r\n    \"isActivated\": true,\r\n    \"isDefaultPolicy\": true,\r\n    \"tags\": [],\r\n    \"breakBuild\": true,\r\n    \"pinPolicy\": true,\r\n    \"lastViolated\": \"2023-08-28T13:40:59.986653Z\",\r\n    \"updatedAt\": \"2023-08-28T13:55:43.822763Z\",\r\n    \"projects\": [],\r\n    \"violatingAssocProjects\": {\r\n        \"assocProjects\": 0,\r\n        \"violating\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/policy_management_service_uri/policies/{{Cx1_PolicyId}}",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"policy_management_service_uri",
+										"policies",
+										"{{Cx1_PolicyId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pin Policy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 427,\r\n    \"name\": \"Burger Alert\",\r\n    \"description\": \"who's hungry\",\r\n    \"isActivated\": true,\r\n    \"isDefaultPolicy\": null,\r\n    \"tags\": [\r\n        \"test\"\r\n    ],\r\n    \"breakBuild\": false,\r\n    \"pinPolicy\": false,\r\n    \"lastViolated\": \"2023-08-28T13:40:59.986653Z\",\r\n    \"updatedAt\": \"2023-08-28T13:40:59.996948Z\",\r\n    \"projects\": [\r\n        {\r\n            \"name\": \"e2e-test-import-project\",\r\n            \"astProjectId\": \"d3307519-ba99-4eef-89b6-a590e2c6e12f\"\r\n        }\r\n    ],\r\n    \"violatingAssocProjects\": {\r\n        \"assocProjects\": 1,\r\n        \"violating\": 0\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/policy_management_service_uri/policies/pinPolicy/{{Cx1_PolicyId}}/:flag",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"policy_management_service_uri",
+										"policies",
+										"pinPolicy",
+										"{{Cx1_PolicyId}}",
+										":flag"
+									],
+									"variable": [
+										{
+											"key": "flag",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Projects",
 					"item": [
 						{
@@ -2379,7 +2587,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/projects/?name=1000",
+									"raw": "{{Cx1_URL}}/api/projects/?name=e2e-test-result-project&exact=true",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2396,7 +2604,7 @@
 										},
 										{
 											"key": "name",
-											"value": "1000"
+											"value": "e2e-test-result-project"
 										},
 										{
 											"key": "limit",
@@ -2405,8 +2613,7 @@
 										},
 										{
 											"key": "exact",
-											"value": "true",
-											"disabled": true
+											"value": "true"
 										}
 									]
 								}
@@ -2526,7 +2733,59 @@
 							"response": []
 						},
 						{
-							"name": "Create Project",
+							"name": "Create Project in Application",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"Cx1_ProjectId\", pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json; version=1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"NewProject\",\r\n    \"criticality\": 3,\r\n    \"origin\": \"Postmans\",\r\n    \"groups\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Cx1_URL}}/api/projects/application/{{Cx1_ApplicationId}}",
+									"host": [
+										"{{Cx1_URL}}"
+									],
+									"path": [
+										"api",
+										"projects",
+										"application",
+										"{{Cx1_ApplicationId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Project Copy",
 							"event": [
 								{
 									"listen": "test",
@@ -2698,7 +2957,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{Cx1_URL}}/api/presets?limit=100",
+									"raw": "{{Cx1_URL}}/api/presets?limit=100&include_details=true&name=ImportBurgerTest",
 									"host": [
 										"{{Cx1_URL}}"
 									],
@@ -2710,6 +2969,14 @@
 										{
 											"key": "limit",
 											"value": "100"
+										},
+										{
+											"key": "include_details",
+											"value": "true"
+										},
+										{
+											"key": "name",
+											"value": "ImportBurgerTest"
 										}
 									]
 								}
@@ -3782,7 +4049,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\"\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \".unknown\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"e2e-test-burger1\"\r\n            }\r\n        }, {\"type\":\"kics\"}, {\"type\":\"sca\"}, {\"type\":\"apisec\"}\r\n    ]\r\n}",
+									"raw": "{\r\n    \"project\": {\r\n        \"id\": \"{{Cx1_ProjectId}}\",\r\n        \"tags\": {\r\n            \"test\": \"\",\r\n            \"priority\": \"high\"\r\n        }\r\n    },\r\n    \"type\": \"upload\",\r\n    \"handler\": {\r\n        \"uploadurl\": \"{{Cx1_UploadURI}}\",\r\n        \"branch\": \"v0.1\"\r\n    },\r\n    \"config\": [\r\n        {\r\n            \"type\": \"sast\",\r\n            \"value\": {\r\n                \"incremental\": \"false\",\r\n                \"languageMode\": \"multi\",\r\n                \"presetName\": \"All\"\r\n            }\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
